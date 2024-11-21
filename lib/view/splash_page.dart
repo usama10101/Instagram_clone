@@ -43,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
               //   'Welcome to Ecommerce',
               //   style: TextStyle(fontSize: 20),
               // )
-              Icon(Iconsax.instagram, size: 70,),
+              Icon(Iconsax.instagram, size: 70, ),
             ],
           ),
         ),
