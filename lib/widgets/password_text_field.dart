@@ -26,7 +26,6 @@ class PasswordTextFieldState extends State<PasswordTextField> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      width: size.width * 0.9,
       alignment: Alignment.bottomCenter,
       child: TextFormField(
         validator: (value) {
@@ -38,6 +37,7 @@ class PasswordTextFieldState extends State<PasswordTextField> {
               CacheHelper.putString(key: SharedKey.repeatPassword, value: value);
             });
           }
+          return null;
         },
         obscureText: !_passwordVisible,
         keyboardType: TextInputType.text,

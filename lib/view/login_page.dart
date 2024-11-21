@@ -20,6 +20,7 @@ class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
 class _LoginScreenState extends State<LoginScreen> {
   bool isLoged = false;
   bool isVisible = true;
@@ -36,83 +37,77 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Colors.grey.shade100,
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 12.h),
+              padding: EdgeInsets.only(top: 25.h),
               child: Form(
                 key: formKeylog,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 1.w),
-                      child: Center(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                            fontSize: 27.sp,
-                            fontWeight: FontWeight.bold,
-                            // color: AppTheme.
-                          ),
-                        ),
-                      ),
+                    Center(
+                      child: SizedBox(
+                          height: 8.h,
+                          child: Image.asset('assets/instagram.png')),
                     ),
                     SizedBox(
-                      height: 6.5.h,
+                      height: 5.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           TextFormField(
                             controller: emailController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
-                                isDense: true,
-                                hintText: 'Email',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.black26, width: 1),
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.black26, width: 1),
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: const BorderSide(
-                                      color: Colors.black38, width: 1),
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                suffixIcon: InkWell(
-                                  splashColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  child: Container(
-                                    padding: EdgeInsets.only(
-                                        left: size.width * 0.02,
-                                        right: size.width * 0.01),
-                                    child: Icon(Iconsax.message_circle,
-                                        size: size.height * 0.022),
-                                  ),
-                                ),
-                                suffixIconConstraints: BoxConstraints(
-                                  minWidth: size.width * 0.15,
-                                ),
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge!
-                                    .copyWith(
-                                        color: Colors.black38,
-                                        fontWeight: FontWeight.w500,
-                                        height: 1.4,
-                                        letterSpacing: 1.5),
-                                counterText: "",
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: size.height * 0.018,
-                                    horizontal: size.width * 0.04),
+                              isDense: true,
+                              hintText: 'Email',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.black26, width: 1),
+                                borderRadius: BorderRadius.circular(12),
                               ),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.black26, width: 1),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                    color: Colors.black38, width: 1),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              suffixIcon: InkWell(
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      left: size.width * 0.02,
+                                      right: size.width * 0.01),
+                                  child: Icon(Iconsax.message_circle,
+                                      size: size.height * 0.022),
+                                ),
+                              ),
+                              suffixIconConstraints: BoxConstraints(
+                                minWidth: size.width * 0.15,
+                              ),
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                      color: Colors.black38,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.4,
+                                      letterSpacing: 1.5),
+                              counterText: "",
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.018,
+                                  horizontal: size.width * 0.04),
+                            ),
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Email Can not be empty ";
@@ -132,47 +127,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 3.h,
                           ),
                           PasswordTextField(
-                              hint: 'Password',
-                              controller: passwordController,
-                              setState: setState,
-                            ),
-                          // TextFormField(
-                          //   obscureText: isVisible,
-                          //   obscuringCharacter: '*',
-                          //   controller: passwordController,
-                          //   decoration: InputDecoration(
-                          //     labelText: "Password",
-                          //     suffixIcon: IconButton(
-                          //       icon: isVisible
-                          //           ? const Icon(Icons.remove_red_eye)
-                          //           : const Icon(
-                          //               Icons.remove_red_eye_outlined),
-                          //       onPressed: () {
-                          //         setState(() {
-                          //           isVisible = !isVisible;
-                          //           // obsecureText = isVisible;
-                          //         });
-                          //       },
-                          //     ),
-                          //     border: OutlineInputBorder(
-                          //       borderRadius: BorderRadius.circular(30),
-                          //     ),
-                          //   ),
-                          //   keyboardType: TextInputType.visiblePassword,
-                          //   // ignore: body_might_complete_normally_nullable
-                          //   validator: (value) {
-                          //     if (value!.length < 6) {
-                          //       return "password should be return 6";
-                          //     }
-                          //   },
-                          //   autovalidateMode:
-                          //       AutovalidateMode.onUserInteraction,
-                          // ),
-                          SizedBox(
-                            height: 2.5.h,
+                            hint: 'Password',
+                            controller: passwordController,
+                            setState: setState,
                           ),
                           SizedBox(
-                            width: size.width * 0.3,
+                            height: 15.h,
+                          ),
+                          SizedBox(
+                            width: size.width * 5,
+                            height: size.height * 0.06,
                             child: ElevatedButton(
                               onPressed: () async {
                                 if (formKeylog.currentState!.validate()) {
@@ -180,32 +144,31 @@ class _LoginScreenState extends State<LoginScreen> {
                                     await AuthCubit.get(context)
                                         .loginByEmailAndPassword(
                                             email: emailController.text,
-                                            password:
-                                                passwordController.text)
+                                            password: passwordController.text)
                                         .then((value) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(const SnackBar(
-                                              content:
-                                                  Text('Login success')));
-                      
+                                              content: Text('Login success')));
+
                                       CacheHelper.putString(
-                                  key: SharedKey.accountName,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .name!);
-                              CacheHelper.putString(
-                                  key: SharedKey.userProfileImage,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .pic!);
-                              CacheHelper.putString(
-                                  key: SharedKey.email,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .email!);
-                              isLoged = true;
-                              CacheHelper.putBool(
-                                  key: SharedKey.isLoged, value: isLoged);
+                                          key: SharedKey.accountName,
+                                          value: AuthCubit.get(context)
+                                              .userModel
+                                              .name!);
+                                      CacheHelper.putString(
+                                          key: SharedKey.userProfileImage,
+                                          value: AuthCubit.get(context)
+                                              .userModel
+                                              .pic!);
+                                      CacheHelper.putString(
+                                          key: SharedKey.email,
+                                          value: AuthCubit.get(context)
+                                              .userModel
+                                              .email!);
+                                      isLoged = true;
+                                      CacheHelper.putBool(
+                                          key: SharedKey.isLoged,
+                                          value: isLoged);
                                       Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
@@ -216,86 +179,82 @@ class _LoginScreenState extends State<LoginScreen> {
                                   } catch (error) {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(const SnackBar(
-                                      content: Text('Invalid email or password'), 
+                                      content:
+                                          Text('Invalid email or password'),
                                     ));
                                   }
                                 }
                               },
                               style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(20))),
-                              child: const Text("Next"),
+                                      borderRadius: BorderRadius.circular(12))),
+                              child: const Text(
+                                "Login",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
+                          // GoogleAuthButton(
+                          //   onPressed: () async {
+                          //     await AuthCubit.get(context).registerByGoogle();
+                          //     CacheHelper.putString(
+                          //         key: SharedKey.accountName,
+                          //         value:
+                          //             AuthCubit.get(context).userModel.name!);
+                          //     CacheHelper.putString(
+                          //         key: SharedKey.userProfileImage,
+                          //         value: AuthCubit.get(context).userModel.pic!);
+                          //     CacheHelper.putString(
+                          //         key: SharedKey.email,
+                          //         value:
+                          //             AuthCubit.get(context).userModel.email!);
+                          //     isLoged = true;
+                          //     CacheHelper.putBool(
+                          //         key: SharedKey.isLoged, value: isLoged);
+                          //     Navigator.pushAndRemoveUntil(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) => const HomePage()),
+                          //         (route) => false);
+                          //   },
+                          //   style: const AuthButtonStyle(
+                          //     buttonType: AuthButtonType.secondary,
+                          //     iconType: AuthIconType.outlined,
+                          //   ),
+                          // ),
                           SizedBox(
                             height: 3.h,
                           ),
-                          GoogleAuthButton(
-                            onPressed: () async {
-                              await AuthCubit.get(context)
-                                  .registerByGoogle();
-                              CacheHelper.putString(
-                                  key: SharedKey.accountName,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .name!);
-                              CacheHelper.putString(
-                                  key: SharedKey.userProfileImage,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .pic!);
-                              CacheHelper.putString(
-                                  key: SharedKey.email,
-                                  value: AuthCubit.get(context)
-                                      .userModel
-                                      .email!);
-                              isLoged = true;
-                              CacheHelper.putBool(
-                                  key: SharedKey.isLoged, value: isLoged);
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const HomePage()),
-                                  (route) => false);
-                            },
-                            style: const AuthButtonStyle(
-                              buttonType: AuthButtonType.secondary,
-                              iconType: AuthIconType.outlined,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            " Create new account ?  ",
-                            style: TextStyle(fontSize: 18.sp),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const RegisterScreen()),);
-                              emailController.clear();
-                              passwordController.clear();
-                            },
-                            child: Text(
-                              "Sign up",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.sp,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                " Do not have an account?",
+                                style: TextStyle(fontSize: 16.sp),
                               ),
-                            ),
-                          )
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const RegisterScreen()),
+                                  );
+                                  emailController.clear();
+                                  passwordController.clear();
+                                },
+                                child: Text(
+                                  "Register",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17.sp,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ],
                       ),
                     ),

@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/cubit/post/post_cubit.dart';
+import 'package:instagram/view/home_page.dart';
 import 'package:instagram/view/login_page.dart';
 import 'package:instagram/view/splash_page.dart';
 import 'package:sizer/sizer.dart';
@@ -27,6 +29,9 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => AuthCubit(),
             ),
+            BlocProvider(
+              create: (context) => PostCubit(),
+            ),
           ],
           child: MaterialApp(
             theme: ThemeData(
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
             debugShowCheckedModeBanner: false,
-            home: const LoginScreen(),
+            home: const HomePage(),
           ),
         );
       },
