@@ -1,10 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram/cubit/chat/chat_cubit.dart';
 import 'package:instagram/cubit/post/post_cubit.dart';
-import 'package:instagram/view/home_page.dart';
-import 'package:instagram/view/login_page.dart';
-import 'package:instagram/view/splash_page.dart';
+import 'package:instagram/view/authentication/splash_page.dart';
 import 'package:sizer/sizer.dart';
 import 'package:instagram/cubit/auth/auth_cubit.dart';
 import 'package:instagram/firebase_options.dart';
@@ -32,6 +31,9 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => PostCubit(),
             ),
+            BlocProvider(
+              create: (context) => ChatCubit(),
+            ),
           ],
           child: MaterialApp(
             theme: ThemeData(
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
             debugShowCheckedModeBanner: false,
-            home: const HomePage(),
+            home: const SplashPage(),
           ),
         );
       },

@@ -21,3 +21,23 @@ final class LoadingUsersSuccessfulState extends AuthState {}
 final class UpdateUserPicSuccessState extends AuthState {}
 final class UpdateUserPicErrorState extends AuthState {}
 final class UploadImageErrorState extends AuthState {}
+class SearchUsersState extends AuthState {
+  final List<UserModel> searchResults;
+
+  SearchUsersState(this.searchResults);
+}
+class SearchLoading extends AuthState {}
+class SearchError extends AuthState {
+  final String message;
+
+  SearchError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}
+class UserDataUpdatedState extends AuthState {
+  final UserModel updatedUser;
+
+  UserDataUpdatedState(this.updatedUser);
+}
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:instagram/enum.dart';
+import 'package:instagram/shared/enum.dart';
 import 'package:instagram/shared/cache_helper.dart';
 import 'package:instagram/widgets/password_text_field.dart';
 

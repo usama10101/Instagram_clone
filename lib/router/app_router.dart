@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/router/routes.dart';
 import 'package:instagram/view/choose_image.dart';
-import 'package:instagram/view/home_page.dart';
-import 'package:instagram/view/login_page.dart';
-import 'package:instagram/view/signup_page.dart';
-import 'package:instagram/view/splash_page.dart';
+import 'package:instagram/view/home_page/home_page.dart';
+import 'package:instagram/view/authentication/login_page/login_page.dart';
+import 'package:instagram/view/authentication/signup_page.dart';
+import 'package:instagram/view/authentication/splash_page.dart';
 
 
 Route? onGenerateRouter(RouteSettings settings) {
